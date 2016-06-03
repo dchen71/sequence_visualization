@@ -1,0 +1,35 @@
+/* Change font of body */
+body {
+  font: 11px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+/* Tooltip syling with flexbox and background color */
+.tooltip {
+  position: absolute;
+  display: -webkit-flex;
+  display: flex;
+  width: 75px;
+  pointer-events: none;
+  border: 1px solid #BCBAAE;
+  background-color: white;
+}
+
+.tooltip p{
+	margin: 0.5em;
+}
+
+/* Change svg so tooltip be on top */
+svg{
+  z-index: -1;
+}
