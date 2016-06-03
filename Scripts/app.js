@@ -102,7 +102,7 @@ d3.csv('Input/parsed_sequence.csv')
           .attr("fill", "red")
 
       nuc.append("text")
-          .attr("x", xMap)
+          .attr("x", function(d){return xScale(d.POS) + 20})
           .attr("y", 50 / 2)
           .attr("dy", ".35em")
           .text(function(d) { return d.SEQ })
