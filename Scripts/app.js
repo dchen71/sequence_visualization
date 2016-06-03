@@ -41,6 +41,10 @@ d3.csv('Input/parsed_sequence.csv')
     d3.selectAll('#end').attr("max", max)
                         .attr("value", max)
 
+    //Add colors
+    var colors = d3.scale.category20();
+
+
     //Draws the plot
     function draw_plot(start, end){
       /*
@@ -77,18 +81,6 @@ d3.csv('Input/parsed_sequence.csv')
       yScale.domain([0, yValue * 2 ]);
 
       //Builds nucleotides
-      /*
-      svg.selectAll(".dot")
-          .data(subset)
-          .enter().append("rect")
-          .attr("x", xMap)
-          .attr("y", yMap)
-          .attr("width", 50)
-          .attr("height", 100)
-          .attr("stroke", "red")
-          .attr("fill", "red")
-          .append("text")
-*/
       var nuc = svg.selectAll("g")
           .data(subset)
         .enter().append("g")
@@ -98,8 +90,134 @@ d3.csv('Input/parsed_sequence.csv')
           .attr("x", xMap)
           .attr("width", 50)
           .attr("height", 50 - 1)
-          .attr("stroke", "red")
-          .attr("fill", "red")
+          .attr("stroke", function(d){
+            switch(d.SEQ){
+              case "A":
+                return(colors(1));
+                break;
+              case "R":
+                return(colors(2));
+                break;
+              case "D":
+                return(colors(3));
+                break;
+              case "N":
+                return(colors(4));
+                break;
+              case "C":
+                return(colors(5));
+                break;
+              case "E":
+                return(colors(6));
+                break;
+              case "Q":
+                return(colors(7));
+                break;
+              case "G":
+                return(colors(8));
+                break;
+              case "H":
+                return(colors(9));
+                break;
+              case "I":
+                return(colors(10));
+                break;
+              case "L":
+                return(colors(11));
+                break;
+              case "K":
+                return(colors(12));
+                break;
+              case "M":
+                return(colors(13));
+                break;
+              case "F":
+                return(colors(14));
+                break;
+              case "P":
+                return(colors(15));
+                break;
+              case "S":
+                return(colors(16));
+                break;
+              case "T":
+                return(colors(17));
+                break;
+              case "W":
+                return(colors(18));
+                break;
+              case "Y":
+                return(colors(19));
+                break;
+              case "V":
+                return(colors(20));
+                break;
+            }
+          })
+          .attr("fill", function(d){
+            switch(d.SEQ){
+              case "A":
+                return(colors(1));
+                break;
+              case "R":
+                return(colors(2));
+                break;
+              case "D":
+                return(colors(3));
+                break;
+              case "N":
+                return(colors(4));
+                break;
+              case "C":
+                return(colors(5));
+                break;
+              case "E":
+                return(colors(6));
+                break;
+              case "Q":
+                return(colors(7));
+                break;
+              case "G":
+                return(colors(8));
+                break;
+              case "H":
+                return(colors(9));
+                break;
+              case "I":
+                return(colors(10));
+                break;
+              case "L":
+                return(colors(11));
+                break;
+              case "K":
+                return(colors(12));
+                break;
+              case "M":
+                return(colors(13));
+                break;
+              case "F":
+                return(colors(14));
+                break;
+              case "P":
+                return(colors(15));
+                break;
+              case "S":
+                return(colors(16));
+                break;
+              case "T":
+                return(colors(17));
+                break;
+              case "W":
+                return(colors(18));
+                break;
+              case "Y":
+                return(colors(19));
+                break;
+              case "V":
+                return(colors(20));
+                break;
+            }
+          })
 
       nuc.append("text")
           .attr("x", function(d){return xScale(d.POS) + 13})
