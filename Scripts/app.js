@@ -102,10 +102,11 @@ d3.csv('Input/parsed_sequence.csv')
           .attr("fill", "red")
 
       nuc.append("text")
-          .attr("x", function(d){return xScale(d.POS) + 20})
+          .attr("x", function(d){return xScale(d.POS) + 13})
           .attr("y", 50 / 2)
           .attr("dy", ".35em")
           .text(function(d) { return d.SEQ })
+          .attr("font-size", 40)
     }
 
     //Draw initial max plot on csv load
